@@ -17,6 +17,8 @@ adb shell "su -c 'mv /sdcard/dumpcap /system/bin/ && chown root:shell /system/bi
 adb push tshark /sdcard/
 adb shell "su -c 'mv /sdcard/tshark /system/bin/ && chown root:shell /system/bin/tshark && chmod +x /system/bin/tshark'"
 
+cd ../../
+
 cd $PREFIX/lib
 adbpush libgmp.so
 adbpush libhogweed.so.4
