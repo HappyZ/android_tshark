@@ -42,4 +42,3 @@ adbpush libintl.so
 adbpush libwireshark.so
 adbpush libxml2.so
 adbpush liblzma.so
-

@@ -1021,12 +1021,13 @@ export ANDROID_ELF_CLEANER=$(pwd)/termux-elf-cleaner
 cd ..
 
 
+echo "Make sure /system/ is writable"
 
 function adbpush() {
     if [ -f "$1" ] ; then
         $ANDROID_ELF_CLEANER $1
         adb push $1 /sdcard
-        adb shell "su -c 'rm /system/lib/${1%.*}* && mv /sdcard/$1 /system/lib/'"
+        adb shell "su -c 'mv /sdcard/$1 /system/lib/'"
     else
          echo "'$1' is not a valid file"
     fi
@@ -1057,6 +1058,7 @@ adbpush libglib-2.0.so
 adbpush libwsutil.so
 adbpush libiconv.so
 adbpush libwiretap.so
-adbpush libwiretap.so
 adbpush libintl.so
 adbpush libwireshark.so
+adbpush libxml2.so
+adbpush liblzma.so
